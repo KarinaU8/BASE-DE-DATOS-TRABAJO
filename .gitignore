@@ -1,0 +1,10 @@
+# Ignorar compilados de Java
+*.class
+
+# Ignorar carpetas temporales
+/bin/
+build/
+
+# Ignorar archivos de sistema
+.DS_Store
+Thumbs.db
