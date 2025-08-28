@@ -112,7 +112,7 @@ INSERT INTO PlanesMantenimiento VALUES
 ('PM007', 'T001', 'V007', 'Cambio de bujías', 43000, 'Pérdida de potencia', '2025-09-05', 130.00);
 GO
 
--- Consultas
+
 SELECT * FROM Clientes;
 
 SELECT c.nombres, c.apellidos, v.placa, v.anio_fabricacion, v.color
