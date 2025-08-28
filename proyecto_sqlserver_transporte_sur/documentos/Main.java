@@ -72,12 +72,12 @@ public class Main {
 
             Producto p = new Producto(nombre, precio, stock);
 
-            // Guardar en archivo
+           
             try(PrintWriter pw = new PrintWriter(new FileWriter("productos.txt", true))) {
                 pw.println(p.getNombre() + "," + p.getPrecio() + "," + p.getStock());
             }
 
-            // Guardar en BD
+        
             Connection con = ConexionBD.getConnection();
             String sql = "INSERT INTO productos(nombre, precio, stock) VALUES(?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
@@ -121,3 +121,4 @@ public class Main {
         }
     }
 }
+
