@@ -27,7 +27,7 @@ WHERE especialidad = 'Mecánica General'
 ORDER BY apellidos ASC;
 GO
 
--- 5) Metadata de tabla Clientes
+
 SELECT * FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_NAME = 'Clientes';
 GO
