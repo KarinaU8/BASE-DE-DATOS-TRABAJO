@@ -116,3 +116,18 @@ INSERT INTO Mantenimientos (codigo_mantenimiento, codigo_vehiculo, codigo_tecnic
 ('MAN003', 'VH002', 'TEC003', 'Preventivo', 'Rotación de llantas y alineamiento', '2024-03-10', NULL, NULL, 45000, 180.00, NULL, 'Pendiente', 'Programado para próxima semana'),
 ('MAN004', 'VH005', 'TEC001', 'Correctivo', 'Reparación de transmisión', '2024-01-25', '2024-01-25', '2024-01-27', 95000, 1200.00, 1350.00, 'Completado', 'Se cambió conjunto de embrague completo'),
 ('MAN005', 'VH004', 'TEC004', 'Preventivo', 'Revisión de frenos', '2024-02-05', '2024-02-05', '2024-02-05', 22000, 150.00, 120.00, 'Completado', 'Pastillas en buen estado, solo ajuste');
+
+SELECT * FROM Clientes;
+SELECT * FROM Vehiculos;
+SELECT * FROM Tecnicos;
+SELECT * FROM Mantenimientos;
+
+SELECT COLUMN_NAME, DATA_TYPE 
+FROM INFORMATION_SCHEMA.COLUMNS 
+WHERE TABLE_NAME = 'Vehiculos';
+
+SELECT v.codigo_vehiculo, v.placa, c.nombres, c.apellidos, c.razon_social
+FROM Vehiculos v
+INNER JOIN Clientes c ON v.codigo_cliente = c.codigo_cliente
+WHERE v.estado = 'Operativo'
+ORDER BY v.kilometraje_actual DESC;
