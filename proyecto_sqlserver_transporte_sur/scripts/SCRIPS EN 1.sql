@@ -66,3 +66,27 @@ BEGIN
         fecha_registro DATETIME DEFAULT GETDATE()
     );
 END
+GO
+
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='Mantenimientos' AND xtype='U')
+BEGIN
+    CREATE TABLE Mantenimientos (
+        codigo_mantenimiento VARCHAR(10) PRIMARY KEY,
+        codigo_vehiculo VARCHAR(10) NOT NULL,
+        codigo_tecnico VARCHAR(10) NOT NULL,
+        tipo_mantenimiento VARCHAR(50) CHECK (tipo_mantenimiento IN ('Preventivo', 'Correctivo', 'Predictivo')),
+        descripcion VARCHAR(200) NOT NULL,
+        fecha_programada DATE NOT NULL,
+        fecha_inicio DATE NULL,
+        fecha_fin DATE NULL,
+        kilometraje INT NOT NULL,
+        costo_estimado DECIMAL(10,2),
+        costo_real DECIMAL(10,2) NULL,
+        estado VARCHAR(20) DEFAULT 'Pendiente' CHECK (estado IN ('Pendiente', 'En Proceso', 'Completado', 'Cancelado')),
+        observaciones TEXT,
+        fecha_registro DATETIME DEFAULT GETDATE(),
+        FOREIGN KEY (codigo_vehiculo) REFERENCES Vehiculos(codigo_vehiculo),
+        FOREIGN KEY (codigo_tecnico) REFERENCES Tecnicos(codigo_tecnico)
+    );
+END
+GO
