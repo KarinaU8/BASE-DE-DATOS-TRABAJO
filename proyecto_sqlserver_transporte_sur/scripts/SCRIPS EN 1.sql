@@ -56,3 +56,31 @@ INSERT INTO Clientes VALUES
 (3, 'Luis', 'Ramírez', 'Ramírez Cargo', 'Calle Central 789', '977555333', 'luisramirez@email.com'),
 (4, 'Carmen', 'Vargas', 'Vargas Transportes', 'Av. Principal 1020', '966111999', 'carmenvargas@email.com'),
 (5, 'José', 'Torres', 'Torres Distribuciones', 'Jr. Comercio 654', '955222888', 'josetorres@email.com');
+
+INSERT INTO Vehiculos VALUES
+(1, 1, 'ABC123', 'Toyota', 'Hilux', 2019, 'Camioneta'),
+(2, 1, 'XYZ987', 'Hyundai', 'Santa Fe', 2020, 'SUV'),
+(3, 2, 'LMN456', 'Volvo', 'FH16', 2018, 'Camión'),
+(4, 3, 'QWE789', 'Mercedes', 'Sprinter', 2021, 'Van'),
+(5, 4, 'JKL321', 'Nissan', 'Navara', 2017, 'Pick-up'),
+(6, 5, 'OPQ654', 'Scania', 'R450', 2022, 'Camión'),
+(7, 2, 'RST852', 'Isuzu', 'NQR', 2016, 'Camión Mediano'),
+(8, 3, 'UVW963', 'Ford', 'Transit', 2019, 'Van');
+
+INSERT INTO Tecnicos VALUES
+(1, 'Carlos', 'Lopez', 'Mecánica General', '955111333', 'carloslopez@email.com'),
+(2, 'Ana', 'Torres', 'Electrónica', '955222444', 'anatorres@email.com'),
+(3, 'Pedro', 'Sánchez', 'Motor Diesel', '955333555', 'pedrosanchez@email.com'),
+(4, 'Lucía', 'Fernández', 'Frenos y Suspensión', '955444666', 'luciafernandez@email.com'),
+(5, 'Miguel', 'Castro', 'Transmisiones', '955555777', 'miguelcastro@email.com');
+
+INSERT INTO Mantenimientos VALUES
+(1, 1, 1, 'Preventivo', 'Cambio de aceite y filtros', '2025-09-10', 'Pendiente'),
+(2, 2, 2, 'Correctivo', 'Reparación sistema eléctrico', '2025-09-15', 'Pendiente'),
+(3, 3, 3, 'Preventivo', 'Revisión general motor', '2025-09-20', 'Pendiente'),
+(4, 4, 1, 'Correctivo', 'Cambio de frenos', '2025-09-25', 'Pendiente'),
+(5, 5, 4, 'Preventivo', 'Revisión suspensión', '2025-09-28', 'Pendiente'),
+(6, 6, 5, 'Correctivo', 'Reparación transmisión', '2025-10-02', 'Pendiente'),
+(7, 7, 2, 'Preventivo', 'Chequeo eléctrico', '2025-10-05', 'Pendiente'),
+(8, 8, 3, 'Correctivo', 'Cambio de inyectores', '2025-10-08', 'Pendiente');
+
