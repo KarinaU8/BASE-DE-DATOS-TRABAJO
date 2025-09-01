@@ -1,33 +1,35 @@
-USE TransporteSur;
-GO
-
-
 SELECT * FROM Clientes;
-GO
+SELECT * FROM Vehiculos;
+SELECT * FROM Tecnicos;
+SELECT * FROM Mantenimientos;
 
-
-SELECT c.nombres, c.apellidos, v.placa, v.anio_fabricacion, v.color
-FROM Clientes c
-INNER JOIN Vehiculos v ON c.codigo = v.codigo_cliente;
-GO
-
-
-SELECT pm.codigo, pm.tipo, pm.fecha, pm.costo,
-       t.nombres AS tecnico, v.placa AS vehiculo, c.nombres AS cliente
-FROM PlanesMantenimiento pm
-INNER JOIN Tecnicos t ON pm.codigo_tecnico = t.codigo
-INNER JOIN Vehiculos v ON pm.codigo_vehiculo = v.codigo
-INNER JOIN Clientes c ON v.codigo_cliente = c.codigo
-ORDER BY pm.fecha DESC;
-GO
-
-
-SELECT * FROM Tecnicos
-WHERE especialidad = 'Mecánica General'
-ORDER BY apellidos ASC;
-GO
-
-
-SELECT * FROM INFORMATION_SCHEMA.COLUMNS
+SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE
+FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_NAME = 'Clientes';
-GO
+
+SELECT c.nombres, c.apellidos, v.placa, v.marca, v.modelo
+FROM Clientes c
+INNER JOIN Vehiculos v ON c.codigo_cliente = v.codigo_cliente;
+
+SELECT c.nombres, v.placa, m.tipo_mantenimiento, m.estado, t.nombres AS tecnico
+FROM Mantenimientos m
+INNER JOIN Vehiculos v ON m.codigo_vehiculo = v.codigo_vehiculo
+INNER JOIN Clientes c ON v.codigo_cliente = c.codigo_cliente
+INNER JOIN Tecnicos t ON m.codigo_tecnico = t.codigo_tecnico;
+
+SELECT * FROM Mantenimientos
+WHERE estado = 'Pendiente'
+ORDER BY fecha_programada ASC;
+
+SELECT v.placa, m.tipo_mantenimiento, m.descripcion, m.estado
+FROM Mantenimientos m
+INNER JOIN Vehiculos v ON m.codigo_vehiculo = v.codigo_vehiculo
+WHERE m.tipo_mantenimiento = 'Correctivo';
+
+SELECT placa, marca, modelo, anio
+FROM Vehiculos
+ORDER BY anio DESC;
+
+SELECT estado, COUNT(*) AS total
+FROM Mantenimientos
+GROUP BY estado;
