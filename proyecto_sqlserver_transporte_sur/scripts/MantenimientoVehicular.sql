@@ -1,5 +1,3 @@
-
-
 CREATE TABLE Clientes (
     codigo_cliente INT PRIMARY KEY,
     nombres NVARCHAR(100) NOT NULL,
@@ -132,5 +130,50 @@ ORDER BY anio DESC;
 
 SELECT estado, COUNT(*) AS total
 FROM Mantenimientos
-
 GROUP BY estado;
+
+SELECT codigo_cliente, nombres, apellidos, razon_social
+FROM Clientes
+WHERE razon_social IS NULL;
+
+SELECT placa, marca, modelo, anio
+FROM Vehiculos
+WHERE marca LIKE 'M%';
+
+SELECT m.codigo_mantenimiento, v.placa, t.nombres AS tecnico, m.tipo_mantenimiento
+FROM Mantenimientos m
+INNER JOIN Vehiculos v ON m.codigo_vehiculo = v.codigo_vehiculo
+INNER JOIN Tecnicos t ON m.codigo_tecnico = t.codigo_tecnico
+WHERE t.nombres IN ('Carlos', 'Ana');
+
+SELECT placa, marca, modelo, anio
+FROM Vehiculos
+WHERE anio BETWEEN 2018 AND 2020;
+
+SELECT codigo_cliente, nombres, apellidos, razon_social,
+       CASE 
+           WHEN razon_social IS NULL THEN 'DESCONOCIDO'
+           ELSE 'REGISTRADO'
+       END AS estado_razon_social
+FROM Clientes;
+
+SELECT c.nombres, c.apellidos, COUNT(v.codigo_vehiculo) AS total_vehiculos
+FROM Clientes c
+LEFT JOIN Vehiculos v ON c.codigo_cliente = v.codigo_cliente
+GROUP BY c.nombres, c.apellidos;
+
+SELECT c.nombres, c.apellidos, COUNT(v.codigo_vehiculo) AS total_vehiculos
+FROM Clientes c
+LEFT JOIN Vehiculos v ON c.codigo_cliente = v.codigo_cliente
+GROUP BY c.nombres, c.apellidos
+HAVING COUNT(v.codigo_vehiculo) > 1;
+
+SELECT tipo_mantenimiento,
+       COUNT(*) AS total,
+       CASE 
+           WHEN tipo_mantenimiento = 'Preventivo' THEN 'Mantenimiento Preventivo'
+           WHEN tipo_mantenimiento = 'Correctivo' THEN 'Mantenimiento Correctivo'
+           ELSE 'Otro'
+       END AS descripcion_tipo
+FROM Mantenimientos
+GROUP BY tipo_mantenimiento;
