@@ -1,3 +1,9 @@
+CREATE DATABASE MantenimientoVehicular;
+GO
+
+USE MantenimientoVehicular;
+GO
+
 CREATE TABLE Clientes (
     codigo_cliente INT PRIMARY KEY,
     nombres NVARCHAR(100) NOT NULL,
@@ -162,3 +168,4 @@ SELECT codigo_mantenimiento, tipo_mantenimiento,
         ELSE 'Finalizado'
     END AS detalle_estado
 FROM Mantenimientos;
+
