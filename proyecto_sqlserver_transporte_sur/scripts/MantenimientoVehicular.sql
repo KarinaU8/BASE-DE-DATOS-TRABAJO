@@ -101,10 +101,6 @@ SELECT * FROM Vehiculos;
 SELECT * FROM Tecnicos;
 SELECT * FROM Mantenimientos;
 
-SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE
-FROM INFORMATION_SCHEMA.COLUMNS
-WHERE TABLE_NAME = 'Clientes';
-
 SELECT c.nombres, c.apellidos, v.placa, v.marca, v.modelo
 FROM Clientes c
 INNER JOIN Vehiculos v ON c.codigo_cliente = v.codigo_cliente;
@@ -132,48 +128,37 @@ SELECT estado, COUNT(*) AS total
 FROM Mantenimientos
 GROUP BY estado;
 
-SELECT codigo_cliente, nombres, apellidos, razon_social
+SELECT nombres, apellidos
 FROM Clientes
 WHERE razon_social IS NULL;
 
-SELECT placa, marca, modelo, anio
+SELECT placa, marca, modelo
 FROM Vehiculos
-WHERE marca LIKE 'M%';
+WHERE marca LIKE 'T%';
 
-SELECT m.codigo_mantenimiento, v.placa, t.nombres AS tecnico, m.tipo_mantenimiento
-FROM Mantenimientos m
-INNER JOIN Vehiculos v ON m.codigo_vehiculo = v.codigo_vehiculo
-INNER JOIN Tecnicos t ON m.codigo_tecnico = t.codigo_tecnico
-WHERE t.nombres IN ('Carlos', 'Ana');
-
-SELECT placa, marca, modelo, anio
+SELECT placa, marca
 FROM Vehiculos
-WHERE anio BETWEEN 2018 AND 2020;
+WHERE codigo_cliente IN (1,2,3);
 
-SELECT codigo_cliente, nombres, apellidos, razon_social,
-       CASE 
-           WHEN razon_social IS NULL THEN 'DESCONOCIDO'
-           ELSE 'REGISTRADO'
-       END AS estado_razon_social
+SELECT codigo_mantenimiento, fecha_programada, estado
+FROM Mantenimientos
+WHERE fecha_programada BETWEEN '2025-09-10' AND '2025-09-25';
+
+SELECT nombres, apellidos, 
+    CASE 
+        WHEN razon_social IS NULL THEN 'Desconocido'
+        ELSE 'Registrado'
+    END AS estado_razon_social
 FROM Clientes;
 
-SELECT c.nombres, c.apellidos, COUNT(v.codigo_vehiculo) AS total_vehiculos
-FROM Clientes c
-LEFT JOIN Vehiculos v ON c.codigo_cliente = v.codigo_cliente
-GROUP BY c.nombres, c.apellidos;
-
-SELECT c.nombres, c.apellidos, COUNT(v.codigo_vehiculo) AS total_vehiculos
-FROM Clientes c
-LEFT JOIN Vehiculos v ON c.codigo_cliente = v.codigo_cliente
-GROUP BY c.nombres, c.apellidos
-HAVING COUNT(v.codigo_vehiculo) > 1;
-
-SELECT tipo_mantenimiento,
-       COUNT(*) AS total,
-       CASE 
-           WHEN tipo_mantenimiento = 'Preventivo' THEN 'Mantenimiento Preventivo'
-           WHEN tipo_mantenimiento = 'Correctivo' THEN 'Mantenimiento Correctivo'
-           ELSE 'Otro'
-       END AS descripcion_tipo
+SELECT tipo_mantenimiento, COUNT(*) AS total
 FROM Mantenimientos
-GROUP BY tipo_mantenimiento;
+GROUP BY tipo_mantenimiento
+HAVING COUNT(*) >= 3;
+
+SELECT codigo_mantenimiento, tipo_mantenimiento,
+    CASE 
+        WHEN estado = 'Pendiente' THEN 'Aún no realizado'
+        ELSE 'Finalizado'
+    END AS detalle_estado
+FROM Mantenimientos;
