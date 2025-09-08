@@ -1,9 +1,4 @@
 
-CREATE DATABASE MantenimientoVehicular;
-GO
-
-USE MantenimientoVehicular;
-GO
 
 CREATE TABLE Clientes (
     codigo_cliente INT PRIMARY KEY,
@@ -48,60 +43,60 @@ CREATE TABLE Mantenimientos (
 );
 
 INSERT INTO Clientes VALUES
-(1, 'Juan', 'PÈrez', 'Transporte PÈrez SAC', 'Av. Siempre Viva 123', '999111222', 'juanperez@email.com'),
-(2, 'MarÌa', 'Gonzales', 'LogÌstica Gonzales', 'Jr. Lima 456', '988777444', 'mariagonzales@email.com'),
-(3, 'Luis', 'RamÌrez', 'RamÌrez Cargo', 'Calle Central 789', '977555333', 'luisramirez@email.com'),
+(1, 'Juan', 'P√©rez', 'Transporte P√©rez SAC', 'Av. Siempre Viva 123', '999111222', 'juanperez@email.com'),
+(2, 'Mar√≠a', 'Gonzales', 'Log√≠stica Gonzales', 'Jr. Lima 456', '988777444', 'mariagonzales@email.com'),
+(3, 'Luis', 'Ram√≠rez', 'Ram√≠rez Cargo', 'Calle Central 789', '977555333', 'luisramirez@email.com'),
 (4, 'Carmen', 'Vargas', 'Vargas Transportes', 'Av. Principal 1020', '966111999', 'carmenvargas@email.com'),
-(5, 'JosÈ', 'Torres', 'Torres Distribuciones', 'Jr. Comercio 654', '955222888', 'josetorres@email.com'),
+(5, 'Jos√©', 'Torres', 'Torres Distribuciones', 'Jr. Comercio 654', '955222888', 'josetorres@email.com'),
 (6, 'Elena', 'Morales', 'Morales Express', 'Av. Industrial 202', '933444555', 'elenamorales@email.com'),
-(7, 'AndrÈs', 'Flores', 'Flores Cargo', 'Jr. Libertad 321', '944555666', 'andresflores@email.com'),
-(8, 'Rosa', 'MartÌnez', 'MartÌnez SAC', 'Calle UniÛn 808', '955666777', 'rosamartinez@email.com'),
+(7, 'Andr√©s', 'Flores', 'Flores Cargo', 'Jr. Libertad 321', '944555666', 'andresflores@email.com'),
+(8, 'Rosa', 'Mart√≠nez', 'Mart√≠nez SAC', 'Calle Uni√≥n 808', '955666777', 'rosamartinez@email.com'),
 (9, 'Diego', 'Castillo', 'Castillo Transportes', 'Av. Sur 110', '977888999', 'diegocastillo@email.com'),
-(10, 'LucÌa', 'Mendoza', 'Mendoza Logistics', 'Jr. Comercio 222', '988999000', 'luciamendoza@email.com');
+(10, 'Luc√≠a', 'Mendoza', 'Mendoza Logistics', 'Jr. Comercio 222', '988999000', 'luciamendoza@email.com');
 
 INSERT INTO Vehiculos VALUES
 (1, 1, 'ABC123', 'Toyota', 'Hilux', 2019, 'Camioneta'),
 (2, 1, 'XYZ987', 'Hyundai', 'Santa Fe', 2020, 'SUV'),
-(3, 2, 'LMN456', 'Volvo', 'FH16', 2018, 'CamiÛn'),
+(3, 2, 'LMN456', 'Volvo', 'FH16', 2018, 'Cami√≥n'),
 (4, 3, 'QWE789', 'Mercedes', 'Sprinter', 2021, 'Van'),
 (5, 4, 'JKL321', 'Nissan', 'Navara', 2017, 'Pick-up'),
-(6, 5, 'OPQ654', 'Scania', 'R450', 2022, 'CamiÛn'),
-(7, 2, 'RST852', 'Isuzu', 'NQR', 2016, 'CamiÛn Mediano'),
+(6, 5, 'OPQ654', 'Scania', 'R450', 2022, 'Cami√≥n'),
+(7, 2, 'RST852', 'Isuzu', 'NQR', 2016, 'Cami√≥n Mediano'),
 (8, 3, 'UVW963', 'Ford', 'Transit', 2019, 'Van'),
 (9, 6, 'HJK741', 'Chevrolet', 'D-Max', 2020, 'Camioneta'),
-(10, 7, 'BNM258', 'MAN', 'TGX', 2021, 'CamiÛn'),
-(11, 8, 'PLQ369', 'Renault', 'Kangoo', 2019, 'FurgÛn'),
+(10, 7, 'BNM258', 'MAN', 'TGX', 2021, 'Cami√≥n'),
+(11, 8, 'PLQ369', 'Renault', 'Kangoo', 2019, 'Furg√≥n'),
 (12, 9, 'GHJ147', 'Kia', 'Sportage', 2018, 'SUV'),
-(13, 10, 'VBN753', 'Mitsubishi', 'Fuso', 2022, 'CamiÛn'),
+(13, 10, 'VBN753', 'Mitsubishi', 'Fuso', 2022, 'Cami√≥n'),
 (14, 6, 'YUI852', 'Peugeot', 'Partner', 2020, 'Furgoneta'),
 (15, 7, 'TRE963', 'Volkswagen', 'Crafter', 2019, 'Van');
 
 INSERT INTO Tecnicos VALUES
-(1, 'Carlos', 'Lopez', 'Mec·nica General', '955111333', 'carloslopez@email.com'),
-(2, 'Ana', 'Torres', 'ElectrÛnica', '955222444', 'anatorres@email.com'),
-(3, 'Pedro', 'S·nchez', 'Motor Diesel', '955333555', 'pedrosanchez@email.com'),
-(4, 'LucÌa', 'Fern·ndez', 'Frenos y SuspensiÛn', '955444666', 'luciafernandez@email.com'),
+(1, 'Carlos', 'Lopez', 'Mec√°nica General', '955111333', 'carloslopez@email.com'),
+(2, 'Ana', 'Torres', 'Electr√≥nica', '955222444', 'anatorres@email.com'),
+(3, 'Pedro', 'S√°nchez', 'Motor Diesel', '955333555', 'pedrosanchez@email.com'),
+(4, 'Luc√≠a', 'Fern√°ndez', 'Frenos y Suspensi√≥n', '955444666', 'luciafernandez@email.com'),
 (5, 'Miguel', 'Castro', 'Transmisiones', '955555777', 'miguelcastro@email.com'),
-(6, 'SofÌa', 'GarcÌa', 'Electricidad Automotriz', '955666888', 'sofiagarcia@email.com'),
-(7, 'Hugo', 'RamÌrez', 'Chapa y Pintura', '955777999', 'hugoramirez@email.com'),
-(8, 'Patricia', 'Reyes', 'DiagnÛstico Computarizado', '955888000', 'patriciareyes@email.com');
+(6, 'Sof√≠a', 'Garc√≠a', 'Electricidad Automotriz', '955666888', 'sofiagarcia@email.com'),
+(7, 'Hugo', 'Ram√≠rez', 'Chapa y Pintura', '955777999', 'hugoramirez@email.com'),
+(8, 'Patricia', 'Reyes', 'Diagn√≥stico Computarizado', '955888000', 'patriciareyes@email.com');
 
 INSERT INTO Mantenimientos VALUES
 (1, 1, 1, 'Preventivo', 'Cambio de aceite y filtros', '2025-09-10', 'Pendiente'),
-(2, 2, 2, 'Correctivo', 'ReparaciÛn sistema elÈctrico', '2025-09-15', 'Pendiente'),
-(3, 3, 3, 'Preventivo', 'RevisiÛn general motor', '2025-09-20', 'Pendiente'),
+(2, 2, 2, 'Correctivo', 'Reparaci√≥n sistema el√©ctrico', '2025-09-15', 'Pendiente'),
+(3, 3, 3, 'Preventivo', 'Revisi√≥n general motor', '2025-09-20', 'Pendiente'),
 (4, 4, 4, 'Correctivo', 'Cambio de frenos', '2025-09-25', 'Pendiente'),
-(5, 5, 5, 'Preventivo', 'RevisiÛn suspensiÛn', '2025-09-28', 'Pendiente'),
-(6, 6, 6, 'Correctivo', 'ReparaciÛn transmisiÛn', '2025-10-02', 'Pendiente'),
-(7, 7, 2, 'Preventivo', 'Chequeo elÈctrico', '2025-10-05', 'Pendiente'),
+(5, 5, 5, 'Preventivo', 'Revisi√≥n suspensi√≥n', '2025-09-28', 'Pendiente'),
+(6, 6, 6, 'Correctivo', 'Reparaci√≥n transmisi√≥n', '2025-10-02', 'Pendiente'),
+(7, 7, 2, 'Preventivo', 'Chequeo el√©ctrico', '2025-10-05', 'Pendiente'),
 (8, 8, 3, 'Correctivo', 'Cambio de inyectores', '2025-10-08', 'Pendiente'),
 (9, 9, 7, 'Correctivo', 'Pintura general', '2025-10-12', 'Pendiente'),
-(10, 10, 8, 'Preventivo', 'DiagnÛstico computarizado', '2025-10-15', 'Pendiente'),
-(11, 11, 1, 'Correctivo', 'RevisiÛn de caja de cambios', '2025-10-18', 'Pendiente'),
+(10, 10, 8, 'Preventivo', 'Diagn√≥stico computarizado', '2025-10-15', 'Pendiente'),
+(11, 11, 1, 'Correctivo', 'Revisi√≥n de caja de cambios', '2025-10-18', 'Pendiente'),
 (12, 12, 4, 'Preventivo', 'Cambio de pastillas de freno', '2025-10-20', 'Pendiente'),
-(13, 13, 5, 'Correctivo', 'ReparaciÛn de embrague', '2025-10-22', 'Pendiente'),
-(14, 14, 6, 'Preventivo', 'RevisiÛn elÈctrica', '2025-10-25', 'Pendiente'),
-(15, 15, 8, 'Correctivo', 'RevisiÛn computadora de abordo', '2025-10-28', 'Pendiente');
+(13, 13, 5, 'Correctivo', 'Reparaci√≥n de embrague', '2025-10-22', 'Pendiente'),
+(14, 14, 6, 'Preventivo', 'Revisi√≥n el√©ctrica', '2025-10-25', 'Pendiente'),
+(15, 15, 8, 'Correctivo', 'Revisi√≥n computadora de abordo', '2025-10-28', 'Pendiente');
 
 SELECT * FROM Clientes;
 SELECT * FROM Vehiculos;
@@ -137,4 +132,5 @@ ORDER BY anio DESC;
 
 SELECT estado, COUNT(*) AS total
 FROM Mantenimientos
+
 GROUP BY estado;
